@@ -43,9 +43,8 @@ jobs:
 
       - name: Bundle ffmpeg arm64 binary
         run: |
-            wget -q --content-disposition -L \
-            https://github.com/MisterioMaick/Volapp/releases/download/v1.0/ffmpeg \
-            -O ffmpeg
+            curl -L -o ffmpeg \
+            https://github.com/MisterioMaick/Volapp/releases/download/v1.0/ffmpeg
             chmod +x ffmpeg
 
       - name: Build APK
