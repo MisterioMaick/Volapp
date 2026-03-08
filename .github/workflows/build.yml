@@ -42,13 +42,7 @@ jobs:
             buildozer-${{ runner.os }}-
 
       - name: Bundle ffmpeg arm64 binary
-        run: |
-          wget -q https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-arm64-static.tar.xz \
-            -O ffmpeg.tar.xz
-          tar -xf ffmpeg.tar.xz --wildcards '*/ffmpeg' --strip-components=1
-          mv ffmpeg ffmpeg_arm64
-          chmod +x ffmpeg_arm64
-          mv ffmpeg_arm64 ffmpeg
+        run: chmod +x ffmpeg
 
       - name: Build APK
         run: |
