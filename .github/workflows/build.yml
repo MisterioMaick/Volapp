@@ -46,7 +46,14 @@ jobs:
             curl -L -o ffmpeg \
             https://github.com/MisterioMaick/Volapp/releases/download/v1.0/ffmpeg
             chmod +x ffmpeg
-
+            
+      - name: Configure Android SDK
+        run: |
+          mkdir -p ~/.buildozer/android/platform
+          ln -sfn /usr/local/lib/android/sdk \
+            ~/.buildozer/android/platform/android-sdk
+          echo "JAVA_HOME=$JAVA_HOME_17_X64" >> $GITHUB_ENV
+          
       - name: Build APK
         run: |
           buildozer -v android debug
